@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightgray;
+        }
+
+        .container {
+            display: flex;
+            padding: 10px;
+            max-height: 100vh;
+        }
+
+        .sub-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sub-container,
+        .box1 {
+            flex-basis: 50%;
+        }
+
+        .box {
+            border: 1px solid black;
+            border-radius: 20px;
+            margin: 10px;
+        }
+
+        .box2,
+        .box3 {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .box3 {
+            max-width: 50%;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 20px;
+            display: block;
+            min-width: 100%;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input {
+            border-radius: 15px;
+            height: 30px;
+            border: 1px solid gray;
+            padding: 10px;
+        }
+
+        button {
+            width: 150px;
+            height: 30px;
+            border-radius: 15px;
+            background-image: linear-gradient(to right, #f1b82d, #f5861f);
+            border: none;
+            position: relative;
+        }
+
+        .spinner {
+            display: none;
+            position: absolute;
+            top: 3px;
+
+        }
+
+        .error {
+            display: none;
+            color: red;
+            border-radius: 15px;
+            padding: 7px;
+        }
+
+        .success {
+            display: none;
+            color: green;
+            position: absolute;
+            left: 10px;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .box1 {
+                display: none;
+            }
+
+            .sub-container {
+                flex-basis: 100%;
+            }
+
+            .box3 {
+                max-width: 100%;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sub-container">
+            <div class="box box2">
+                <form>
+                    <div>
+                        <label for="guid">Enter a valid GUID here.</label>
+                        <span class="error" id="error">GUID invalid</span>
+                    </div>
+                    <input type="text" id="guid" required>
+                    <button type="submit">
+                        <div class="spinner" id="spinner">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="#808080"
+                                viewBox="0 0 24 24">
+                                <style>
+                                    .spinner_V8m1 {
+                                        transform-origin: center;
+                                        animation: spinner_zKoa 2s linear infinite
+                                    }
+
+                                    .spinner_V8m1 circle {
+                                        stroke-linecap: round;
+                                        animation: spinner_YpZS 1.5s ease-in-out infinite
+                                    }
+
+                                    @keyframes spinner_zKoa {
+                                        100% {
+                                            transform: rotate(360deg)
+                                        }
+                                    }
+
+                                    @keyframes spinner_YpZS {
+                                        0% {
+                                            stroke-dasharray: 0 150;
+                                            stroke-dashoffset: 0
+                                        }
+
+                                        47.5% {
+                                            stroke-dasharray: 42 150;
+                                            stroke-dashoffset: -16
+                                        }
+
+                                        95%,
+                                        100% {
+                                            stroke-dasharray: 42 150;
+                                            stroke-dashoffset: -59
+                                        }
+                                    }
+                                </style>
+                                <g class="spinner_V8m1">
+                                    <circle cx="12" cy="12" r="9.5" fill="none" stroke-width="3" />
+                                </g>
+                            </svg>
+                        </div>
+                        <span class="success" id="success">✔</span>
+                        Submit
+                    </button>
+                </form>
+            </div>
+            <div class="box box3">
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                    dicta sunt explicabo.</p>
+            </div>
+        </div>
+        <div class="box box1">
+            <img src="images/image.jpg" alt="Image">
+        </div>
+    </div>
+    <script src="script.js" type="text/javascript"></script>
+</body>
+
+</html>
